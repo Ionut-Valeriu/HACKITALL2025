@@ -16,4 +16,6 @@ offset_left = -32.0
 offset_top = -128.0
 offset_right = 32.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="cam" type="Camera2D" parent="."]
