@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwdpiji430rd7"]
+
+[ext_resource type="PackedScene" uid="uid://bl2ax8g34oshc" path="res://scenes/player.tscn" id="1_o5qli"]
+
+[node name="Main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_o5qli")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_right = 40.0
+offset_bottom = 40.0
