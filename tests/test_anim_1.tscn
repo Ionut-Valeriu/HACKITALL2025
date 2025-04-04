@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://bblrirb07qm7n"]
+
+[ext_resource type="Texture2D" uid="uid://bjqela5owf5rk" path="res://assets/Upper_Body_Piece.png" id="1_h7w0c"]
+[ext_resource type="Texture2D" uid="uid://bg3nur6oiwqdy" path="res://assets/Lower_Body_Piece.png" id="2_xopgv"]
+[ext_resource type="Texture2D" uid="uid://djhi7m5bodr78" path="res://assets/Lower_Arm.png" id="3_hwsg7"]
+[ext_resource type="Texture2D" uid="uid://da4rw5nxcgubg" path="res://assets/Upper_Arm.png" id="4_ppeil"]
+[ext_resource type="Texture2D" uid="uid://dip2x4d2n5tc0" path="res://assets/Glove.png" id="5_0by5l"]
+
+[node name="Anim1" type="Node2D"]
+
+[node name="Parts skeleton" type="Node2D" parent="."]
+
+[node name="Parts" type="Node2D" parent="Parts skeleton"]
+
+[node name="UpperBodyPiece" type="Sprite2D" parent="Parts skeleton/Parts"]
+position = Vector2(0, -33)
+texture = ExtResource("1_h7w0c")
+metadata/_edit_lock_ = true
+
+[node name="LowerBodyPiece" type="Sprite2D" parent="Parts skeleton/Parts/UpperBodyPiece"]
+texture = ExtResource("2_xopgv")
+metadata/_edit_lock_ = true
+
+[node name="ARM" type="Node2D" parent="Parts skeleton/Parts/UpperBodyPiece"]
+
+[node name="LowerArm" type="Sprite2D" parent="Parts skeleton/Parts/UpperBodyPiece/ARM"]
+texture = ExtResource("3_hwsg7")
+metadata/_edit_lock_ = true
+
+[node name="UpperArm" type="Sprite2D" parent="Parts skeleton/Parts/UpperBodyPiece/ARM"]
+texture = ExtResource("4_ppeil")
+metadata/_edit_lock_ = true
+
+[node name="Glove" type="Sprite2D" parent="Parts skeleton/Parts/UpperBodyPiece/ARM"]
+texture = ExtResource("5_0by5l")
+metadata/_edit_lock_ = true
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Parts skeleton"]
+
+[node name="Base" type="Bone2D" parent="Parts skeleton/Skeleton2D"]
+position = Vector2(10, -99)
+
+[node name="Upper_Body" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base"]
+position = Vector2(-2, -118)
+
+[node name="Shoulder" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body"]
+position = Vector2(-68, -2)
+
+[node name="Arm" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder"]
+position = Vector2(-26, 103)
+
+[node name="Hand" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder/Arm"]
+position = Vector2(-14, 104)
+rotation = 1.26566
+scale = Vector2(3.39308, 1)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Lower_Body" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base"]
+position = Vector2(2, 47)
