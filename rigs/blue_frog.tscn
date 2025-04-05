@@ -1,6 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8nlled7iapuh"]
+[gd_scene load_steps=5 format=3 uid="uid://c8nlled7iapuh"]
 
 [ext_resource type="Texture2D" uid="uid://brdq3bdm35i6f" path="res://assets/Frogs/Blue Frog.png" id="1_mbqnv"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_mbqnv"]
+target_nodepath = NodePath("../IK_Targets/BackLeg_Target")
+tip_nodepath = NodePath("Base/RearUpperLeg/RearLowerLeg/RearFoot")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 2
+joint_data/0/bone2d_node = NodePath("Base/RearUpperLeg/RearLowerLeg")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Base/RearUpperLeg")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_20tgl"]
+target_nodepath = NodePath("../IK_Targets/FrontLeg_Target")
+tip_nodepath = NodePath("Base/1UpperBody/FrontUpperLeg/FrontLowerLeg/FrontFoot")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 9
+joint_data/0/bone2d_node = NodePath("Base/1UpperBody/FrontUpperLeg/FrontLowerLeg")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 8
+joint_data/1/bone2d_node = NodePath("Base/1UpperBody/FrontUpperLeg")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_es5sd"]
+enabled = true
+modification_count = 2
+modifications/0 = SubResource("SkeletonModification2DCCDIK_mbqnv")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_20tgl")
 
 [node name="B_Frog" type="Node2D"]
 
@@ -93,6 +129,7 @@ polygons = [PackedInt32Array(0, 1, 2, 3, 4, 5)]
 bones = ["Base", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/RearUpperLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/RearUpperLeg/RearLowerLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/RearUpperLeg/RearLowerLeg/RearFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/1UpperBody", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/1UpperBody/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/1UpperBody/Mouth", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/1UpperBody/Tongue", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/1UpperBody/FrontUpperLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Base/1UpperBody/FrontUpperLeg/FrontLowerLeg", PackedFloat32Array(1, 1, 1, 1, 1, 1), "Base/1UpperBody/FrontUpperLeg/FrontLowerLeg/FrontFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_es5sd")
 
 [node name="Base" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(172, -125)
@@ -101,10 +138,12 @@ rest = Transform2D(1, 0, 0, 1, 172, -125)
 [node name="RearUpperLeg" type="Bone2D" parent="Skeleton2D/Base"]
 position = Vector2(72, 67)
 rest = Transform2D(1, 0, 0, 1, 72, 67)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="RearLowerLeg" type="Bone2D" parent="Skeleton2D/Base/RearUpperLeg"]
 position = Vector2(-85, 18)
 rest = Transform2D(1, 0, 0, 1, -85, 18)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="RearFoot" type="Bone2D" parent="Skeleton2D/Base/RearUpperLeg/RearLowerLeg"]
 position = Vector2(99, 26)
@@ -148,10 +187,12 @@ bone_angle = -168.091
 [node name="FrontUpperLeg" type="Bone2D" parent="Skeleton2D/Base/1UpperBody"]
 position = Vector2(-12, 39)
 rest = Transform2D(1, 0, 0, 1, -12, 39)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="FrontLowerLeg" type="Bone2D" parent="Skeleton2D/Base/1UpperBody/FrontUpperLeg"]
 position = Vector2(23, 39)
 rest = Transform2D(1, 0, 0, 1, 23, 39)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="FrontFoot" type="Bone2D" parent="Skeleton2D/Base/1UpperBody/FrontUpperLeg/FrontLowerLeg"]
 position = Vector2(-38, -4.76837e-07)
@@ -161,3 +202,11 @@ rest = Transform2D(2.06876, 1.35898, 0.955241, -1.45415, -38, -4.76837e-07)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -157.267
+
+[node name="IK_Targets" type="Node2D" parent="."]
+
+[node name="BackLeg_Target" type="Node2D" parent="IK_Targets"]
+position = Vector2(384, 112)
+
+[node name="FrontLeg_Target" type="Node2D" parent="IK_Targets"]
+position = Vector2(-80, -32)
