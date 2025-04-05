@@ -108,7 +108,7 @@ rest = Transform2D(1, 0, 0, 1, -85, 18)
 
 [node name="RearFoot" type="Bone2D" parent="Skeleton2D/Base/RearUpperLeg/RearLowerLeg"]
 position = Vector2(99, 26)
-rotation = 0.729122
+rotation = 0.729123
 scale = Vector2(1.75817, 5.91329)
 rest = Transform2D(1.31117, 1.17132, -3.93952, 4.40989, 99, 26)
 auto_calculate_length_and_angle = false
@@ -121,7 +121,8 @@ rest = Transform2D(1, 0, 0, 1, -75, -13)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Base/1UpperBody"]
 position = Vector2(-34, -22)
-rotation = -0.0592577
+rotation = -0.0592578
+scale = Vector2(1, 1)
 rest = Transform2D(0.998245, -0.0592231, 0.0592231, 0.998245, -34, -22)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -138,7 +139,7 @@ bone_angle = -159.821
 
 [node name="Tongue" type="Bone2D" parent="Skeleton2D/Base/1UpperBody"]
 position = Vector2(-29, 16)
-rotation = 0.390155
+rotation = 0.390154
 scale = Vector2(1.96365, -1.34552)
 rest = Transform2D(1.81608, 0.746836, 0.511742, -1.2444, -29, 16)
 auto_calculate_length_and_angle = false
@@ -155,7 +156,7 @@ rest = Transform2D(1, 0, 0, 1, 23, 39)
 
 [node name="FrontFoot" type="Bone2D" parent="Skeleton2D/Base/1UpperBody/FrontUpperLeg/FrontLowerLeg"]
 position = Vector2(-38, -4.76837e-07)
-rotation = 0.581215
+rotation = 0.581214
 scale = Vector2(2.4752, -1.73984)
 rest = Transform2D(2.06876, 1.35898, 0.955241, -1.45415, -38, -4.76837e-07)
 auto_calculate_length_and_angle = false
