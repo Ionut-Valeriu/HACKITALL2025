@@ -23,8 +23,8 @@ func handle_movement() -> void:
 	
 	move_and_slide()
 	
-	print("X: ", movement_x, " Y: ", movement_y)
-	print("Velocity: ", velocity, " Collisions: ", get_slide_collision_count())
+	#print("X: ", movement_x, " Y: ", movement_y)
+	#print("Velocity: ", velocity, " Collisions: ", get_slide_collision_count())
 	
 
 
