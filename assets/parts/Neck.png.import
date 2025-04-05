@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://e8uky4jpqxnj"
-path="res://.godot/imported/Neck.png-2af853c1cb80c5890a9d09c5b1dfe1ba.ctex"
+path="res://.godot/imported/Neck.png-fc75d38f2aef5d7781440fdf4dc0441f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/parts/Neck.png"
-dest_files=["res://.godot/imported/Neck.png-2af853c1cb80c5890a9d09c5b1dfe1ba.ctex"]
+source_file="res://assets/Parts/Neck.png"
+dest_files=["res://.godot/imported/Neck.png-fc75d38f2aef5d7781440fdf4dc0441f.ctex"]
 
 [params]
 

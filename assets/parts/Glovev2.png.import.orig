@@ -3,15 +3,24 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c73bmr0kvq0uf"
+<<<<<<<< HEAD:assets/Parts/Glovev2.png.import
 path="res://.godot/imported/Glovev2.png-204c29fed6f96c050790cdaed104a6ff.ctex"
+========
+path="res://.godot/imported/Glovev2.png-029da4e7d9897cdf81b4b8e6523f2765.ctex"
+>>>>>>>> skelets:assets/parts/Glovev2.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:assets/Parts/Glovev2.png.import
 source_file="res://assets/Parts/Glovev2.png"
 dest_files=["res://.godot/imported/Glovev2.png-204c29fed6f96c050790cdaed104a6ff.ctex"]
+========
+source_file="res://assets/parts/Glovev2.png"
+dest_files=["res://.godot/imported/Glovev2.png-029da4e7d9897cdf81b4b8e6523f2765.ctex"]
+>>>>>>>> skelets:assets/parts/Glovev2.png.import
 
 [params]
 

@@ -3,15 +3,24 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djhi7m5bodr78"
+<<<<<<<< HEAD:assets/Parts/Lower_Arm.png.import
 path="res://.godot/imported/Lower_Arm.png-20c58ec537e70b8bd8b03596cf3ed54c.ctex"
+========
+path="res://.godot/imported/Lower_Arm.png-3d0733d517ae87090b3ac9fa90f087c4.ctex"
+>>>>>>>> skelets:assets/parts/Lower_Arm.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:assets/Parts/Lower_Arm.png.import
 source_file="res://assets/Parts/Lower_Arm.png"
 dest_files=["res://.godot/imported/Lower_Arm.png-20c58ec537e70b8bd8b03596cf3ed54c.ctex"]
+========
+source_file="res://assets/parts/Lower_Arm.png"
+dest_files=["res://.godot/imported/Lower_Arm.png-3d0733d517ae87090b3ac9fa90f087c4.ctex"]
+>>>>>>>> skelets:assets/parts/Lower_Arm.png.import
 
 [params]
 
