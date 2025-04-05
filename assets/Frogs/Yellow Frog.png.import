@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da4rw5nxcgubg"
-path="res://.godot/imported/Upper_Arm.png-ebeea6acffddb168ddbc5714d128c976.ctex"
+uid="uid://cvaqg0uy2sess"
+path="res://.godot/imported/Yellow Frog.png-e745b8ba849700303b825bb15722e232.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Upper_Arm.png"
-dest_files=["res://.godot/imported/Upper_Arm.png-ebeea6acffddb168ddbc5714d128c976.ctex"]
+source_file="res://assets/Frogs/Yellow Frog.png"
+dest_files=["res://.godot/imported/Yellow Frog.png-e745b8ba849700303b825bb15722e232.ctex"]
 
 [params]
 

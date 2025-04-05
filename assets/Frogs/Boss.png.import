@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjqela5owf5rk"
-path="res://.godot/imported/Upper_Body_Piece.png-4b70fff3dcd46eb6607dd3727041eb51.ctex"
+uid="uid://bg65xvd7bgi05"
+path="res://.godot/imported/Boss.png-a0df13be312af3af2318ca5247a9e24b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Upper_Body_Piece.png"
-dest_files=["res://.godot/imported/Upper_Body_Piece.png-4b70fff3dcd46eb6607dd3727041eb51.ctex"]
+source_file="res://assets/Frogs/Boss.png"
+dest_files=["res://.godot/imported/Boss.png-a0df13be312af3af2318ca5247a9e24b.ctex"]
 
 [params]
 

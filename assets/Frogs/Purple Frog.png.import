@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dip2x4d2n5tc0"
-path="res://.godot/imported/Glove.png-8e49f476d55b2424d9fd146b3a2ce0d2.ctex"
+uid="uid://4tcwmtdglos5"
+path="res://.godot/imported/Purple Frog.png-18916bd717e002464bcfe6f3e764e934.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Glove.png"
-dest_files=["res://.godot/imported/Glove.png-8e49f476d55b2424d9fd146b3a2ce0d2.ctex"]
+source_file="res://assets/Frogs/Purple Frog.png"
+dest_files=["res://.godot/imported/Purple Frog.png-18916bd717e002464bcfe6f3e764e934.ctex"]
 
 [params]
 

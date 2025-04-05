@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c73bmr0kvq0uf"
-path="res://.godot/imported/Glovev2.png-85009298de35b236261f66dd66b66d62.ctex"
+uid="uid://dh6wp8pai32jx"
+path="res://.godot/imported/Foot.png-de8b99f5069b44e53a9827f825deac3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Glovev2.png"
-dest_files=["res://.godot/imported/Glovev2.png-85009298de35b236261f66dd66b66d62.ctex"]
+source_file="res://assets/Parts/Foot.png"
+dest_files=["res://.godot/imported/Foot.png-de8b99f5069b44e53a9827f825deac3e.ctex"]
 
 [params]
 
