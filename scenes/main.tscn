@@ -9,5 +9,7 @@
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Node2D"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 170.0
+offset_top = 64.0
+offset_right = 210.0
+offset_bottom = 104.0

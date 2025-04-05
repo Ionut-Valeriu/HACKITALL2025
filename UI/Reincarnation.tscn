@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr3i14lvbqueg"]
+
+[ext_resource type="FontFile" uid="uid://detvvtjqm2pet" path="res://assets/BLKCHCRY.TTF" id="1_bn4c6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umros"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bn4c6"]
+bg_color = Color(0.474628, 0.590869, 0.876116, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twhs3"]
+bg_color = Color(0.193951, 0.291442, 0.561608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teayd"]
+bg_color = Color(0.474628, 0.590869, 0.876116, 1)
+
+[node name="Reincarnation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_umros")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -509.0
+offset_top = 65.0
+offset_right = 524.0
+offset_bottom = 415.0
+grow_horizontal = 2
+theme_override_fonts/italics_font = ExtResource("1_bn4c6")
+theme_override_font_sizes/italics_font_size = 40
+bbcode_enabled = true
+text = "[i] You have lost once again. I am starting to pity you.
+
+Maybe your next life will be more fulfilling.
+
+Choose an upgrade.
+[/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = 219.0
+offset_right = -179.0
+offset_bottom = 833.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+theme_override_constants/separation = 100
+
+[node name="Button6" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_bn4c6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_twhs3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_teayd")
+text = "
+
+
+
+
+
+"
+
+[node name="Button5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_bn4c6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_twhs3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_teayd")
+text = "
+
+
+
+
+
+"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_bn4c6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_twhs3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_teayd")
+text = "
+
+
+
+
+
+"
