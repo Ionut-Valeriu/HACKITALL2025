@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djhi7m5bodr78"
-path="res://.godot/imported/Lower_Arm.png-330b4a7f63c6a499b179286eb2d68af1.ctex"
+uid="uid://dip2x4d2n5tc0"
+path="res://.godot/imported/Glove.png-eff04c1968d928ebd67adb4ea79921f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Lower_Arm.png"
-dest_files=["res://.godot/imported/Lower_Arm.png-330b4a7f63c6a499b179286eb2d68af1.ctex"]
+source_file="res://assets/parts/Glove.png"
+dest_files=["res://.godot/imported/Glove.png-eff04c1968d928ebd67adb4ea79921f9.ctex"]
 
 [params]
 
