@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var attack_speed : float = 400.0
 @export var movement_direction : Vector2 = Vector2.ZERO
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:	
 	handle_movement()
 	
 	if is_on_wall():
