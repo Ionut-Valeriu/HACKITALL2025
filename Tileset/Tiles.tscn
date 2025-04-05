@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://csj50qjyuri2y"]
+
+[ext_resource type="Texture2D" uid="uid://cxnbl6w1cbbp6" path="res://assets/Tile Stone.png" id="1_8yi3u"]
+[ext_resource type="Texture2D" uid="uid://x0i8fmdnypwg" path="res://assets/Grass Tile.png" id="2_53q7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60rg2"]
+size = Vector2(62, 62)
+
+[node name="Node" type="Node"]
+
+[node name="StoneSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_8yi3u")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StoneSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoneSprite/StaticBody2D"]
+shape = SubResource("RectangleShape2D_60rg2")
+
+[node name="GrassSprite" type="Sprite2D" parent="."]
+position = Vector2(76, 0)
+texture = ExtResource("2_53q7s")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GrassSprite"]
