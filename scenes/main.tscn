@@ -1,10 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwdpiji430rd7"]
+[gd_scene load_steps=6 format=3 uid="uid://cwdpiji430rd7"]
 
 [ext_resource type="PackedScene" uid="uid://bl2ax8g34oshc" path="res://scenes/player.tscn" id="1_o5qli"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(2198, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
+size = Vector2(2146, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(148, 3249)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+size = Vector2(59.5, 3231)
+
 [node name="Main" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("1_o5qli")]
+[node name="Camera" type="Node2D" parent="."]
+
+[node name="player" parent="Camera" instance=ExtResource("1_o5qli")]
+position = Vector2(36, -92)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Camera/player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+position = Vector2(36, -92)
+limit_left = -900
+limit_top = -3200
+limit_right = 900
+limit_bottom = 0
+editor_draw_limits = true
+
+[node name="Walls" type="Node2D" parent="Camera"]
+
+[node name="top" type="StaticBody2D" parent="Camera/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Walls/top"]
+position = Vector2(3, -3247)
+shape = SubResource("RectangleShape2D_0wfyh")
+one_way_collision_margin = 0.0
+
+[node name="bottom" type="StaticBody2D" parent="Camera/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Walls/bottom"]
+position = Vector2(2, 59)
+shape = SubResource("RectangleShape2D_o5qli")
+
+[node name="left" type="StaticBody2D" parent="Camera/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Walls/left"]
+position = Vector2(-974, -1590)
+shape = SubResource("RectangleShape2D_sugp2")
+
+[node name="right" type="StaticBody2D" parent="Camera/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Walls/right"]
+position = Vector2(930, -1563)
+shape = SubResource("RectangleShape2D_jyhfs")
 
 [node name="Node2D" type="Node2D" parent="."]
 
