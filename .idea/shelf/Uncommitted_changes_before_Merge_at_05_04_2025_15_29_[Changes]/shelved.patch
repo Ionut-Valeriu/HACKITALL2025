@@ -1,0 +1,172 @@
+Index: scenes/player.gd
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>extends CharacterBody2D\n\n@onready var color_rect = $ColorRect as ColorRect\n@onready var animation_player = $AnimationPlayer as AnimationPlayer\n\n@export var move_speed : float = 150.0\n@export var attack_speed : float = 400.0\n@export var movement_direction : Vector2 = Vector2.ZERO\n\nfunc _physics_process(delta: float) -> void:\n\thandle_movement()\n\t\n\tmove_and_slide()\n\nfunc handle_movement() -> void:\n\tvar movement_x : float = Input.get_axis(\"move_left\", \"move_right\")\n\tvar movement_y : float = Input.get_axis(\"move_up\", \"move_down\")\n\t\n\tmovement_direction = Vector2(movement_x, movement_y).normalized()\n\t\n\tvelocity = movement_direction * move_speed\n\t\n\tprint(\"X: \", movement_x, \" Y: \", movement_y)\n\t\n\t#animatii\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/scenes/player.gd b/scenes/player.gd
+--- a/scenes/player.gd	(revision fd7cf196a6711e07b63a41f557583f06ec603d41)
++++ b/scenes/player.gd	(date 1743856148065)
+@@ -10,7 +10,8 @@
+ func _physics_process(delta: float) -> void:
+ 	handle_movement()
+ 	
+-	move_and_slide()
++	if is_on_wall():
++		movement_direction.x = 0
+ 
+ func handle_movement() -> void:
+ 	var movement_x : float = Input.get_axis("move_left", "move_right")
+@@ -20,6 +21,12 @@
+ 	
+ 	velocity = movement_direction * move_speed
+ 	
++	move_and_slide()
++	
+ 	print("X: ", movement_x, " Y: ", movement_y)
++	print("Velocity: ", velocity, " Collisions: ", get_slide_collision_count())
+ 	
+-	#animatii
++
++
++
++#animatii
+Index: scenes/main.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=2 format=3 uid=\"uid://cwdpiji430rd7\"]\n\n[ext_resource type=\"PackedScene\" uid=\"uid://bl2ax8g34oshc\" path=\"res://scenes/player.tscn\" id=\"1_o5qli\"]\n\n[node name=\"Main\" type=\"Node2D\"]\n\n[node name=\"player\" parent=\".\" instance=ExtResource(\"1_o5qli\")]\n\n[node name=\"Node2D\" type=\"Node2D\" parent=\".\"]\n\n[node name=\"ColorRect\" type=\"ColorRect\" parent=\"Node2D\"]\noffset_right = 40.0\noffset_bottom = 40.0\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/scenes/main.tscn b/scenes/main.tscn
+--- a/scenes/main.tscn	(revision fd7cf196a6711e07b63a41f557583f06ec603d41)
++++ b/scenes/main.tscn	(date 1743856148065)
+@@ -1,10 +1,63 @@
+-[gd_scene load_steps=2 format=3 uid="uid://cwdpiji430rd7"]
++[gd_scene load_steps=6 format=3 uid="uid://cwdpiji430rd7"]
+ 
+ [ext_resource type="PackedScene" uid="uid://bl2ax8g34oshc" path="res://scenes/player.tscn" id="1_o5qli"]
+ 
++[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
++size = Vector2(2198, 92)
++
++[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
++size = Vector2(2146, 115)
++
++[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
++size = Vector2(148, 3249)
++
++[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
++size = Vector2(59.5, 3231)
++
+ [node name="Main" type="Node2D"]
+ 
+-[node name="player" parent="." instance=ExtResource("1_o5qli")]
++[node name="Camera" type="Node2D" parent="."]
++
++[node name="player" parent="Camera" instance=ExtResource("1_o5qli")]
++position = Vector2(36, -92)
++
++[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Camera/player"]
++remote_path = NodePath("../../Camera2D")
++
++[node name="Camera2D" type="Camera2D" parent="Camera"]
++position = Vector2(36, -92)
++limit_left = -900
++limit_top = -3200
++limit_right = 900
++limit_bottom = 0
++editor_draw_limits = true
++
++[node name="Walls" type="Node2D" parent="Camera"]
++
++[node name="top" type="StaticBody2D" parent="Camera/Walls"]
++
++[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Walls/top"]
++position = Vector2(3, -3247)
++shape = SubResource("RectangleShape2D_0wfyh")
++one_way_collision_margin = 0.0
++
++[node name="bottom" type="StaticBody2D" parent="Camera/Walls"]
++
++[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Walls/bottom"]
++position = Vector2(2, 59)
++shape = SubResource("RectangleShape2D_o5qli")
++
++[node name="left" type="StaticBody2D" parent="Camera/Walls"]
++
++[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Walls/left"]
++position = Vector2(-974, -1590)
++shape = SubResource("RectangleShape2D_sugp2")
++
++[node name="right" type="StaticBody2D" parent="Camera/Walls"]
++
++[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Walls/right"]
++position = Vector2(930, -1563)
++shape = SubResource("RectangleShape2D_jyhfs")
+ 
+ [node name="Node2D" type="Node2D" parent="."]
+ 
+Index: scenes/player.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=2 format=3 uid=\"uid://bl2ax8g34oshc\"]\n\n[ext_resource type=\"Script\" uid=\"uid://ci16ierlpdkvb\" path=\"res://scenes/player.gd\" id=\"1_3vyb7\"]\n\n[node name=\"player\" type=\"CharacterBody2D\"]\nscript = ExtResource(\"1_3vyb7\")\n\n[node name=\"Sprite2D\" type=\"Sprite2D\" parent=\".\"]\n\n[node name=\"CollisionShape2D\" type=\"CollisionShape2D\" parent=\".\"]\n\n[node name=\"AnimationPlayer\" type=\"AnimationPlayer\" parent=\".\"]\n\n[node name=\"ColorRect\" type=\"ColorRect\" parent=\".\"]\noffset_left = -32.0\noffset_top = -128.0\noffset_right = 32.0\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/scenes/player.tscn b/scenes/player.tscn
+--- a/scenes/player.tscn	(revision fd7cf196a6711e07b63a41f557583f06ec603d41)
++++ b/scenes/player.tscn	(date 1743856148065)
+@@ -1,13 +1,18 @@
+-[gd_scene load_steps=2 format=3 uid="uid://bl2ax8g34oshc"]
++[gd_scene load_steps=3 format=3 uid="uid://bl2ax8g34oshc"]
+ 
+ [ext_resource type="Script" uid="uid://ci16ierlpdkvb" path="res://scenes/player.gd" id="1_3vyb7"]
+ 
++[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
++size = Vector2(66, 129)
++
+ [node name="player" type="CharacterBody2D"]
+ script = ExtResource("1_3vyb7")
+ 
+ [node name="Sprite2D" type="Sprite2D" parent="."]
+ 
+ [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
++position = Vector2(0, -63.5)
++shape = SubResource("RectangleShape2D_3vyb7")
+ 
+ [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+ 
+@@ -16,4 +21,4 @@
+ offset_top = -128.0
+ offset_right = 32.0
+ 
+-[node name="Camera2D" type="Camera2D" parent="."]
++[node name="Node2D" type="Node2D" parent="."]
+Index: project.godot
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>; Engine configuration file.\n; It's best edited using the editor UI and not directly,\n; since the parameters that go here are not all obvious.\n;\n; Format:\n;   [section] ; section goes between []\n;   param=value ; assign values to parameters\n\nconfig_version=5\n\n[application]\n\nconfig/name=\"hackitall\"\nrun/main_scene=\"uid://cwdpiji430rd7\"\nconfig/features=PackedStringArray(\"4.4\", \"Mobile\")\nconfig/icon=\"res://icon.svg\"\n\n[editor]\n\nversion_control/plugin_name=\"GitPlugin\"\nversion_control/autoload_on_startup=true\n\n[input]\n\nmove_left={\n\"deadzone\": 0.5,\n\"events\": [Object(InputEventKey,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"pressed\":false,\"keycode\":0,\"physical_keycode\":4194319,\"key_label\":0,\"unicode\":0,\"location\":0,\"echo\":false,\"script\":null)\n, Object(InputEventKey,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"pressed\":false,\"keycode\":0,\"physical_keycode\":65,\"key_label\":0,\"unicode\":97,\"location\":0,\"echo\":false,\"script\":null)\n]\n}\nmove_right={\n\"deadzone\": 0.5,\n\"events\": [Object(InputEventKey,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"pressed\":false,\"keycode\":0,\"physical_keycode\":68,\"key_label\":0,\"unicode\":100,\"location\":0,\"echo\":false,\"script\":null)\n, Object(InputEventKey,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"pressed\":false,\"keycode\":0,\"physical_keycode\":4194321,\"key_label\":0,\"unicode\":0,\"location\":0,\"echo\":false,\"script\":null)\n]\n}\nmove_up={\n\"deadzone\": 0.5,\n\"events\": [Object(InputEventKey,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"pressed\":false,\"keycode\":0,\"physical_keycode\":87,\"key_label\":0,\"unicode\":119,\"location\":0,\"echo\":false,\"script\":null)\n, Object(InputEventKey,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"pressed\":false,\"keycode\":0,\"physical_keycode\":4194320,\"key_label\":0,\"unicode\":0,\"location\":0,\"echo\":false,\"script\":null)\n]\n}\nmove_down={\n\"deadzone\": 0.5,\n\"events\": [Object(InputEventKey,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"pressed\":false,\"keycode\":0,\"physical_keycode\":83,\"key_label\":0,\"unicode\":115,\"location\":0,\"echo\":false,\"script\":null)\n, Object(InputEventKey,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"pressed\":false,\"keycode\":0,\"physical_keycode\":4194322,\"key_label\":0,\"unicode\":0,\"location\":0,\"echo\":false,\"script\":null)\n]\n}\nattack={\n\"deadzone\": 0.2,\n\"events\": [Object(InputEventMouseButton,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"device\":-1,\"window_id\":0,\"alt_pressed\":false,\"shift_pressed\":false,\"ctrl_pressed\":false,\"meta_pressed\":false,\"button_mask\":0,\"position\":Vector2(0, 0),\"global_position\":Vector2(0, 0),\"factor\":1.0,\"button_index\":1,\"canceled\":false,\"pressed\":false,\"double_click\":false,\"script\":null)\n]\n}\n\n[rendering]\n\nrenderer/rendering_method=\"mobile\"\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/project.godot b/project.godot
+--- a/project.godot	(revision fd7cf196a6711e07b63a41f557583f06ec603d41)
++++ b/project.godot	(date 1743856148065)
+@@ -46,11 +46,10 @@
+ , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+ ]
+ }
+-attack={
+-"deadzone": 0.2,
+-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+-]
+-}
++
++[layer_names]
++
++2d_physics/layer_1="character"
+ 
+ [rendering]
+ 
