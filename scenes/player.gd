@@ -10,7 +10,8 @@ extends CharacterBody2D
 func _physics_process(delta: float) -> void:
 	handle_movement()
 	
-	move_and_slide()
+	if is_on_wall():
+		movement_direction.x = 0
 
 func handle_movement() -> void:
 	var movement_x : float = Input.get_axis("move_left", "move_right")
@@ -20,6 +21,12 @@ func handle_movement() -> void:
 	
 	velocity = movement_direction * move_speed
 	
-	print("X: ", movement_x, " Y: ", movement_y)
+	move_and_slide()
 	
-	#animatii
+	print("X: ", movement_x, " Y: ", movement_y)
+	print("Velocity: ", velocity, " Collisions: ", get_slide_collision_count())
+	
+
+
+
+#animatii
