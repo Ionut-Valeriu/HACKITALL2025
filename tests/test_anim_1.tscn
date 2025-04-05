@@ -11,43 +11,79 @@
 [node name="Parts skeleton" type="Node2D" parent="."]
 
 [node name="Parts" type="Node2D" parent="Parts skeleton"]
+position = Vector2(0, 40.815)
 
 [node name="UpperBodyPiece" type="Sprite2D" parent="Parts skeleton/Parts"]
-position = Vector2(0, -33)
+position = Vector2(-0.100838, -54.0362)
+rotation = 0.0242062
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_h7w0c")
 metadata/_edit_lock_ = true
 
-[node name="LowerBodyPiece" type="Sprite2D" parent="Parts skeleton/Parts/UpperBodyPiece"]
+[node name="LowerBodyPiece" type="Sprite2D" parent="Parts skeleton/Parts"]
+position = Vector2(0, -33)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_xopgv")
 metadata/_edit_lock_ = true
 
-[node name="ARM" type="Node2D" parent="Parts skeleton/Parts/UpperBodyPiece"]
+[node name="ARM" type="Node2D" parent="Parts skeleton/Parts"]
+position = Vector2(-18.99, -79.47)
 
-[node name="LowerArm" type="Sprite2D" parent="Parts skeleton/Parts/UpperBodyPiece/ARM"]
+[node name="LowerArm" type="Sprite2D" parent="Parts skeleton/Parts/ARM"]
 texture = ExtResource("3_hwsg7")
 metadata/_edit_lock_ = true
 
-[node name="UpperArm" type="Sprite2D" parent="Parts skeleton/Parts/UpperBodyPiece/ARM"]
+[node name="UpperArm" type="Sprite2D" parent="Parts skeleton/Parts/ARM"]
 texture = ExtResource("4_ppeil")
 metadata/_edit_lock_ = true
 
-[node name="Glove" type="Sprite2D" parent="Parts skeleton/Parts/UpperBodyPiece/ARM"]
+[node name="Glove" type="Sprite2D" parent="Parts skeleton/Parts/ARM"]
 texture = ExtResource("5_0by5l")
+metadata/_edit_lock_ = true
+
+[node name="ARM2" type="Node2D" parent="Parts skeleton/Parts"]
+position = Vector2(32.865, -76.13)
+
+[node name="LowerArm" type="Sprite2D" parent="Parts skeleton/Parts/ARM2"]
+position = Vector2(1.31426, -5.22139)
+rotation = 0.0184334
+scale = Vector2(1, 1)
+texture = ExtResource("3_hwsg7")
+flip_h = true
+
+[node name="UpperArm" type="Sprite2D" parent="Parts skeleton/Parts/ARM2"]
+position = Vector2(-7.63047, -18.5918)
+rotation = 0.0848559
+scale = Vector2(1, 1)
+texture = ExtResource("4_ppeil")
+flip_h = true
+
+[node name="Glove" type="Sprite2D" parent="Parts skeleton/Parts/ARM2"]
+rotation = 0.0394844
+texture = ExtResource("5_0by5l")
+flip_h = true
 metadata/_edit_lock_ = true
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Parts skeleton"]
 
 [node name="Base" type="Bone2D" parent="Parts skeleton/Skeleton2D"]
-position = Vector2(10, -99)
+position = Vector2(11, -70)
 
 [node name="Upper_Body" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base"]
-position = Vector2(-2, -118)
+position = Vector2(2, -148)
+rotation = 0.0200142
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body"]
+position = Vector2(-9, 205)
+rotation = 0.00419196
+scale = Vector2(1.2, 1.2)
+remote_path = NodePath("../../../../Parts/UpperBodyPiece")
 
 [node name="Shoulder" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body"]
-position = Vector2(-68, -2)
+position = Vector2(-88, -5)
 
 [node name="Arm" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder"]
-position = Vector2(-26, 103)
+position = Vector2(-35, 101)
 
 [node name="Hand" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder/Arm"]
 position = Vector2(-14, 104)
@@ -57,5 +93,41 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder/Arm/Hand"]
+remote_path = NodePath("../../../../../../../Parts/ARM/Glove")
+use_global_coordinates = false
+
+[node name="Shoulder2" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body"]
+position = Vector2(79, -6)
+rotation = -0.00139219
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder2"]
+position = Vector2(-63.7203, 169.727)
+rotation = 0.0662338
+remote_path = NodePath("../../../../../Parts/ARM2/UpperArm")
+
+[node name="Arm" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder2"]
+position = Vector2(27, 102)
+rotation = -0.0509481
+scale = Vector2(1, 1)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder2/Arm"]
+position = Vector2(-85.5437, 76.6716)
+rotation = 0.0507595
+remote_path = NodePath("../../../../../../Parts/ARM2/LowerArm")
+
+[node name="Hand" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder2/Arm"]
+position = Vector2(18, 102)
+rotation = 1.82262
+scale = Vector2(3.39308, 1)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Parts skeleton/Skeleton2D/Base/Upper_Body/Shoulder2/Arm/Hand"]
+rotation = 0.0394844
+remote_path = NodePath("../../../../../../../Parts/ARM2/Glove")
+use_global_coordinates = false
+
 [node name="Lower_Body" type="Bone2D" parent="Parts skeleton/Skeleton2D/Base"]
-position = Vector2(2, 47)
+position = Vector2(0, 50)
