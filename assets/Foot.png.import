@@ -2,26 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:assets/Foot.png.import
 uid="uid://bvxpues8ldefb"
 path="res://.godot/imported/Foot.png-1cb573054736c1affddf09e32bd9f43e.ctex"
-========
-uid="uid://dvb6gibjd03ru"
-path="res://.godot/imported/Protagonist full.png-a1e3b88f08da0f1b5bce587c09768546.ctex"
->>>>>>>> skelets:assets/Protagonist full.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:assets/Foot.png.import
 source_file="res://assets/Foot.png"
 dest_files=["res://.godot/imported/Foot.png-1cb573054736c1affddf09e32bd9f43e.ctex"]
-========
-source_file="res://assets/Protagonist full.png"
-dest_files=["res://.godot/imported/Protagonist full.png-a1e3b88f08da0f1b5bce587c09768546.ctex"]
->>>>>>>> skelets:assets/Protagonist full.png.import
+
 
 [params]
 

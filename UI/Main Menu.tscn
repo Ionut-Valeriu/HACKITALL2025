@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://drws18n1ex0aa"]
+
+[ext_resource type="Texture2D" uid="uid://co84feiw1mbd0" path="res://assets/Menu Screen PlaceHolder.jpg" id="1_kybp0"]
+[ext_resource type="FontFile" uid="uid://detvvtjqm2pet" path="res://assets/BLKCHCRY.TTF" id="2_owi87"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ugbd5"]
+texture = ExtResource("1_kybp0")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8db5b"]
+bg_color = Color(0.133628, 0.251246, 0.156056, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.647059)
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kybp0"]
+bg_color = Color(0.0888383, 0.179176, 0.106939, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owi87"]
+bg_color = Color(0.28372, 0.486263, 0.323629, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(598, 369)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ugbd5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -49.0
+offset_right = 126.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(373.5, 229)
+theme_override_constants/separation = 20
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_owi87")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_8db5b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kybp0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_owi87")
+text = "Start Game"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_owi87")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_8db5b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kybp0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_owi87")
+text = "Exit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -249.0
+offset_right = 267.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_owi87")
+theme_override_font_sizes/normal_font_size = 80
+text = "FROGNESS"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 161

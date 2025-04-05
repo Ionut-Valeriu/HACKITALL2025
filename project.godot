@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="hackitall"
-run/main_scene="uid://cwdpiji430rd7"
+run/main_scene="uid://dr3i14lvbqueg"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

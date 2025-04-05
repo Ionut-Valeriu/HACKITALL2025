@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beomlbqvkwrj0"
-path="res://.godot/imported/Tile Stone.png-63cdc50efc290a170a7a10287137f98e.ctex"
+uid="uid://co84feiw1mbd0"
+path="res://.godot/imported/Menu Screen PlaceHolder.jpg-5d60c2d481fa8ab301b3ade931b128db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tile Stone.png"
-dest_files=["res://.godot/imported/Tile Stone.png-63cdc50efc290a170a7a10287137f98e.ctex"]
+source_file="res://assets/Menu Screen PlaceHolder.jpg"
+dest_files=["res://.godot/imported/Menu Screen PlaceHolder.jpg-5d60c2d481fa8ab301b3ade931b128db.ctex"]
 
 [params]
 
